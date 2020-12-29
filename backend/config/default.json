@@ -1,0 +1,4 @@
+{
+    "port": 5000,
+    "mongoUrl": "mongodb+srv://admin:qwerty12@clusterfullstackapp.wvzsj.mongodb.net/fullstackDb?retryWrites=true&w=majority"
+}
