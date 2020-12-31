@@ -5,10 +5,12 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
-    "server": "nodemon app.js"
+    "server": "nodemon app.js",
+    "client": "npm run start --prefix ../frontend",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
   },
   "keywords": [
-    "angular",
+    "angular or react",
     "node",
     "express",
     "mongo"
