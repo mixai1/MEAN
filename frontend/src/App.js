@@ -1,12 +1,17 @@
 import './App.css';
 import 'materialize-css';
-import { AuthPage } from './pages/AuthPage';
+import { Routes } from './routes/routes';
+import { BrowserRouter } from 'react-router-dom';
 
 function App() {
+  const routes = Routes(false);
   return (
-    <div className = "container">
-      <h1>Hello World !!!</h1>
-      <AuthPage></AuthPage>
+    <div className="container">
+      <BrowserRouter>
+      <div>
+        {routes}
+      </div>
+      </BrowserRouter>
     </div>
   );
 }
