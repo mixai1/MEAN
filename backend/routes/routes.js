@@ -2,7 +2,7 @@ const { Router } = require('express');
 const config = require('config');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
-const { check, validationResult } = require('express-validator');
+const { check, validationResult} = require('express-validator');
 const User = require('../models/user');
 
 
@@ -25,7 +25,7 @@ router.post(
         try {
             const errs = validationResult(req);
             if (!errs.isEmpty()) {
-                return res.status(400).json({ massage: "Error validation", errors: errs.array() })
+                return res.status(400).json({ massage: "Error validation registr", errors: errs.array() })
             }
             const { email, password } = req.body;
             const condit = await User.findOne(email);
@@ -48,10 +48,11 @@ router.post('/login',
         check('password').isLength({ min: 5 }).exists()
     ],
     async (req, res) => {
+        console.log('res.body', res.body)
         try {
             const errs = validationResult(req);
             if (!errs.isEmpty()) {
-                return res.status(400).json({ massage: "Error validation", errors: errs.array() })
+                return res.status(400).json({ massage: "Error validation login", errors: errs.array() })
             }
             const { email, password } = req.body;
             const user = await User.findOne({ email });

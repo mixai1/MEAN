@@ -1,14 +1,21 @@
-import  React,{ useState } from 'react';
+import React, { useState } from 'react';
+import { useHttp } from '../hooks/http.hook';
 
 export const AuthPage = () => {
+    const { loading, request } = useHttp();
     const [form, setform] = useState({
         email: '',
         password: ''
     });
 
-const changeHandler = (event) => {
-    setform({...form, [event.target.name]: event.target.value})
-}
+    const changeHandler = (event) => {
+        setform({ ...form, [event.target.name]: event.target.value })
+    }
+
+    const registerHandler = async () => {
+        const data = await request('api/register', 'POST', { ...form },);
+        console.log(data);
+    }
 
     return (
         <div className="row">
@@ -23,8 +30,9 @@ const changeHandler = (event) => {
                                     placeholder="Email"
                                     id="email" type="email"
                                     name="email"
+                                    onChange={changeHandler}
                                 />
-                                <label htmlfor="email">Email</label>
+                                <label htmlFor="email">Email</label>
                             </div>
                         </div>
                         <div>
@@ -33,6 +41,7 @@ const changeHandler = (event) => {
                                     placeholder="Password"
                                     id="password" type="password"
                                     name="password"
+                                    onChange={changeHandler}
                                 />
                                 <label htmlfor="password">Password</label>
                             </div>
@@ -40,8 +49,17 @@ const changeHandler = (event) => {
                     </div>
                     <div>
                         <div className="card-action">
-                            <button className="btn yellow darken-4">Login</button>
-                            <button className="btn grey lighten-1 black-text">Registration</button>
+                            <button
+                                disabled={loading}
+                                className="btn yellow darken-4">
+                                Login
+                                </button>
+                            <button
+                                onClick={registerHandler}
+                                disabled={loading}
+                                className="btn grey lighten-1 black-text">
+                                Registration
+                                    </button>
                         </div>
                     </div>
                 </div>
