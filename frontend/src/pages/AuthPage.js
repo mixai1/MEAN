@@ -13,8 +13,7 @@ export const AuthPage = () => {
     }
 
     const registerHandler = async () => {
-        const data = await request('api/register', 'POST', { ...form },);
-        console.log(data);
+        const data = await request('api/register', 'POST', { ...form });
     }
 
     return (
