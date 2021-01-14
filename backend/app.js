@@ -8,7 +8,6 @@ const PORT = config.get('port');
 app.use(express.json({extended: true}));
 app.use('/api', require('../backend/routes/routes'));
 
-
 async function start() {
     try {
         await mongoose.connect(config.get('mongoUrl'), {
@@ -21,7 +20,6 @@ async function start() {
     catch (e) {
         console.log(e.massage);
         process.exit(1);
-
     }
 }
 

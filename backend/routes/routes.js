@@ -28,6 +28,7 @@ router.post(
                 return res.status(400).json({ massage: "Error validation registr", errors: errs.array() })
             }
             const { email, password } = req.body;
+            console.log(boby);
             const condit = await User.findOne(email);
             if (condit) {
                 return res.status(400).json({ massage: "A user with this email address already exists" })

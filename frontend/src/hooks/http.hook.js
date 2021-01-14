@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react"
+import { useState, useCallback } from "react";
 
 export const useHttp = () => {
     const [loading, setloading] = useState(false);
@@ -14,18 +14,17 @@ export const useHttp = () => {
             const response = await fetch(url, { method, body, headers });
             const data = await response.json();
             if (!response.ok) {
-                throw new Error(data.message || "Error");
+                throw new Error(data.message || "Error respose");
             }
             setloading(false);
 
             return data;
         } catch (e) {
             setloading(false);
-            setError(e.massage);
-            throw e;
+            setError(e.message);
         }
     }, []);
-    const clearError = () => { setError(null); }
+    const clearError = useCallback(() => { setError(null); },[]);
 
     return { loading, request, error, clearError }
 }
