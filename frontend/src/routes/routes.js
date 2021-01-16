@@ -1,7 +1,8 @@
 import React from 'react';
-import { Route, Switch, Redirect } from 'react-router-dom';
+import { Route, Switch, Redirect} from 'react-router-dom';
 import { CreatePage } from '../pages/CreatePage';
 import { AuthPage } from '../pages/AuthPage';
+import { HomePage } from '../pages/HomePage';
 
 export const Routes = (isAuth) => {
     if (isAuth) {
@@ -10,8 +11,11 @@ export const Routes = (isAuth) => {
                 <Route path="/create" exact>
                     <CreatePage />
                 </Route>
+                <Route path = "/home">
+                    <HomePage/>
+                </Route>
                 <Route>
-                    <Redirect to="/create" />
+                    <Redirect to="/home" />
                 </Route>
             </Switch>
         );
