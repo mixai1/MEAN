@@ -25,11 +25,11 @@ export const AuthPage = () => {
     }
 
     const registerHandler = async () => {
-        await request('/api/register', 'POST', { ...form });
+        await request('/api/auth/register', 'POST', { ...form });
     }
 
     const loginHandler = async () => {
-        const data = await request('/api/login', 'POST', { ...form });
+        const data = await request('/api/auth/login', 'POST', { ...form });
         authContext.login(data.token, data.userId);
     }
 
