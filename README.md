@@ -10,7 +10,8 @@ My example app use MERN
     "express": "^4.17.1",
     "express-validator": "^6.9.0",
     "jsonwebtoken": "^8.5.1",
-    "mongoose": "^5.11.9"
+    "mongoose": "^5.11.9",
+    "shortid": "^2.2.16"
   },
     frontend
     {
