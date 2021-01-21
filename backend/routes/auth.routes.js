@@ -7,6 +7,11 @@ const User = require('../models/user');
 
 const router = Router();
 
+// api/auth/
+router.get('/get', async (req, res) => {
+    return res.json("Say Hello!");
+})
+
 // api/auth/register
 router.post('/register',
     [
