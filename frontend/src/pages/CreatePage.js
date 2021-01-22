@@ -1,5 +1,5 @@
 import React, { useContext, useState } from 'react';
-import {useHistory} from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 import { useHttp } from '../hooks/http.hook';
 import { AuthContext } from '../context/auth.context';
 
@@ -17,8 +17,7 @@ export const CreatePage = () => {
                     {
                         authorization: `Bearer ${auth.token}`
                     });
-                    console.log(`This is data ${JSON.stringify(data)}`);
-                    history.push(`/detail/${data.link._id}`);
+                history.push(`/detail/${data.link._id}`);
             } catch (error) {
                 console.log(error);
             }
@@ -26,21 +25,23 @@ export const CreatePage = () => {
     }
 
     return (
-        <div className="row">
-            <div className="col s8 offset-s2">
-                <div className="input-field">
-                    <input
-                        placeholder="write link"
-                        type="text"
-                        id="link"
-                        value={link}
-                        onChange={(e) => setLink(e.target.value)}
-                        onKeyPress={pressHandler}
-                    ></input>
-                    <label htmlFor="link">Write link</label>
+        <div className="container">
+            <div className="row">
+                <div className="col s8 offset-s2">
+                    <h1>CreatePage</h1>
+                    <div className="input-field">
+                        <input
+                            placeholder="write link"
+                            type="text"
+                            id="link"
+                            value={link}
+                            onChange={(e) => setLink(e.target.value)}
+                            onKeyPress={pressHandler}
+                        ></input>
+                        <label htmlFor="link">Write link</label>
+                    </div>
                 </div>
             </div>
-            <h1>CreatePage</h1>
         </div>
     );
 };
