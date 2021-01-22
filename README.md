@@ -1,6 +1,5 @@
 # MERN
-project for GMZ 
-My example app use MERN
+program for shortening links using the MERN stack with authorization
 {
   I using for backend:
   {
